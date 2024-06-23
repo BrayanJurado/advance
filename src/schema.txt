@@ -1,0 +1,19 @@
+
+//ESQUEMA DE PROYECTO
+CREATE TABLE project (
+    pid SERIAL PRIMARY KEY,
+    description VARCHAR(200) NOT NULL,
+    creation_date DATE DEFAULT CURRENT_DATE,
+    culmination_date DATE NOT NULL
+);
+
+//ESQUEMA DE TAREA
+CREATE TABLE task (
+    tid SERIAL PRIMARY KEY,
+    project_id INTEGER NOT NULL,
+    title  VARCHAR(50) NOT NULL,
+    description VARCHAR(200) NOT NULL,
+    creation_date DATE DEFAULT CURRENT_DATE,
+    culmination_date DATE NOT NULL,
+    FOREIGN KEY (pid) REFERENCES project(pid)
+);
